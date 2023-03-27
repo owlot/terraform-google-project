@@ -34,8 +34,8 @@ resource "google_project" "map" {
 
   project_id      = each.value.gcp_project_id
   name            = each.value.gcp_project_name
-  folder_id       = each.value.gcp_folder_id
-  billing_account = each.value.gcp_billing_account
+  folder_id       = sensitive(each.value.gcp_folder_id)
+  billing_account = sensitive(each.value.gcp_billing_account)
 
   labels = each.value.labels
 
